@@ -1,15 +1,18 @@
-import Footer from "conponents/Footer";
-import NavBar from "conponents/NavBar";
+import DataTable from "components/DataTable";
+import Footer from "components/Footer";
+import NavBar from "components/NavBar";
 
 function App() {
   return (
 //serve pra fragmentar o componente 
 <>
-    <NavBar/>
+       <NavBar/>
     <div>
-    <h1 className="text-primary">Olá Mundo!</h1>
+        <h1 className="text-primary">Olá Mundo!</h1>
+
+        <DataTable/>
     </div>
-    <Footer/>
+        <Footer/>
     </>
   );
 }
