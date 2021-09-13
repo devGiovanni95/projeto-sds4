@@ -17,13 +17,15 @@ const DataTable = () => {
         totalPages:0
     });
 
+    //pro use efect ficar observando a troca de pagina
+
     useEffect(() => {
-        axios.get(`${BASE_URL}/sales?page=0&size=20&sort=date,desc`)
+        axios.get(`${BASE_URL}/sales?page=${activePage}&size=20&sort=date,desc`)
         .then(response =>{
             setPage(response.data);
         });
 
-    }, []);
+    }, [activePage]);//faltou colocar a classe no segundo colchete
 
     const changePage = (index: number) => {
         setActivePage(index);
@@ -31,7 +33,7 @@ const DataTable = () => {
 
   return(
       <>
-      <Pagination page={page} onPageChange={changePage}/>
+      <Pagination page={page} onPageChange={changePage} />
   
     <div className="table-responsive">
         <table className= "table table-striped table-sm">
