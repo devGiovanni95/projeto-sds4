@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Chart from 'react-apexcharts'
 import { SAleSum } from 'types/sale';
 import { BASE_URL } from 'utils/requests';
@@ -12,12 +12,10 @@ const DonutChar = () => {
 
     const [chartData, setChartData] = useState<ChartData>({ labels: [], series: []});
 
-    //Forma Errada
-  //  let chartData: ChartData = { labels: [], series: [] };
+    //Forma Correta
+    useEffect(() => {
 
-
-     //Forma Errada
-    axios.get(`${BASE_URL}/sales/amount-by-seller`)
+        axios.get(`${BASE_URL}/sales/amount-by-seller`)
         .then((response) => {
 
             const data = response.data as SAleSum[];
@@ -26,8 +24,12 @@ const DonutChar = () => {
 
             setChartData({ labels: myLabels, series: mySeries});
                 console.log(chartData); 
-                //console.log(response.data);
+              //console.log(response.data);
+ 
         });
+    },
+    []
+    )        
 
 
     //  const mockData = {
