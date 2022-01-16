@@ -27,9 +27,7 @@ const DonutChar = () => {
               //console.log(response.data);
  
         });
-    },
-    []
-    )        
+    },);        
 
 
     //  const mockData = {
